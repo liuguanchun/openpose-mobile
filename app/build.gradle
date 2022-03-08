@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'com.chaquo.python'
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+    defaultConfig {
+        applicationId "com.example.python_android"
+        minSdkVersion 23
+//        minSdkVersion 28
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+        python{
+            pip {
+                install "scipy"
+                install "requests==2.24.0"
+                install "torch"
+                install "torchvision"
+                install "opencv-contrib-python"
+                install "opencv-python"
+                install "matplotlib"
+                //install "Pygments==2.2.0"   // Also used in Java API demo
+                install "numpy"
+                //install "scikit-image"
+
+            }
+            buildPython "D:/Python/Python38/python.exe"
+
+        }
+
+    }
+
+    sourceSets{
+        main{
+            jniLibs.srcDirs=['libs']
+        }
+    }
+    buildTypes {
+//        release {
+//            minifyEnabled false
+        //           proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        //       }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:30.0.2'
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'org.pytorch:pytorch_android:1.6.0'
+    implementation 'org.pytorch:pytorch_android_torchvision:1.6.0'
+
+    implementation project(path: ':Opencv')
+
+
+}

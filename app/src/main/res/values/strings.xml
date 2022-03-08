@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">openpose_demo</string>
+    <string name="record">Record</string>
+    <string name="text1">Capture</string>
+    <string name="stop">Stop</string>
+    <string name="description_info">Info</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="permission_request">This sample needs permission for camera and audio recording.</string>
+    <string name="text2">Stop</string>
+    <string name="request_permission">request_permission</string>
+    request_permission
+</resources>
